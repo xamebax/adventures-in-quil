@@ -1,9 +1,11 @@
 (ns crawler.core
   (:require [quil.core :refer :all]))
+  ;; (:use gil.core)
+
 
 (defn setup []
   (smooth)
-  (frame-rate (random 1 5)))
+  (frame-rate 10))
 
 (def palette
    (vector [ 16   4  14]   ;10040e
@@ -17,28 +19,27 @@
            [162  42 138]   ;a22a8a
            [ 97  25  83])) ;611953
 
-(defn generate-circles []
+(defn generate-circles
+  [x y]
   (let [current-color (nth palette (rand (count palette)))]
     (no-stroke)
     (fill (first current-color) (second current-color) (last current-color))
-    (ellipse (rand 200) (rand 200) 15 15)))
+    (ellipse x y 15 15)))
 
 (defn draw []
-  (background 255)
-  
-  (generate-circles)
-  (generate-circles)
-  (generate-circles)
-  (generate-circles)
-  (generate-circles))
+  (generate-circles (rand 300) (rand 300))
+  (generate-circles (rand 300) (rand 300))
+  (generate-circles (rand 300) (rand 300))
+  (generate-circles (rand 300) (rand 300)))
+  ;; (save-animation "crawler.gif" 600 0))
   
 (defn update-state [])
 
 (defsketch crawler
   :title "Crawler"
   :setup setup
-  :draw draw
+  :draw #'draw
   ;; :update update-state
-  :size [200 200])
+  :size [300 300])
 
 (defn -main [& args])

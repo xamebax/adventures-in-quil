@@ -3,4 +3,5 @@
   :url "http://example.com/FIXME"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [quil "2.3.0" :exclusions [org.clojure/clojure]]]
+                 ;; [gil "1.0.0-SNAPSHOT"]
   :main crawler.core)
