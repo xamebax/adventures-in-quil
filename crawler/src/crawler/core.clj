@@ -5,7 +5,13 @@
   (smooth)
   (frame-rate 1))
 
-(def palette (vector [0 0 0] [60 60 60] [140 140 200]))
+(def palette
+   (vector [ 16   4  14]   ;10040e
+           [ 32   8  28]   ;20081c
+           [ 49  13  41]   ;310d29
+           [ 65  17  55]   ;411137
+           [ 81  21  69]   ;511545
+           [ 97  25  83])) ;611953
 
 (defn generate-circles []
   (let [current-color (nth palette (rand (count palette)))]
